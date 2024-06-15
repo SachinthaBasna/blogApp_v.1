@@ -26,7 +26,6 @@ function signIn() {
   xhttp.send(fd);
 }
 
-
 // Publish post
 function publishPost() {
   // alert("Wada machan");
@@ -85,10 +84,35 @@ function postView(x) {
   xhttp.onreadystatechange = function () {
     if (xhttp.readyState == 4 && xhttp.status == 200) {
       var response = xhttp.responseText;
-      window.location = "./post.php?pid="+postId;
+      window.location = "./post.php?pid=" + postId;
     }
   };
 
-  xhttp.open("GET", "./post.php?pid="+postId, true);
+  xhttp.open("GET", "./post.php?pid=" + postId, true);
   xhttp.send();
+}
+
+function searchPost() {
+  // alert("OK");
+  var searchText = document.getElementById("search");
+
+  var xhttp = new XMLHttpRequest();
+  var f = new FormData();
+  f.append("searchText", searchText.value);
+
+  xhttp.onreadystatechange = function () {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+      // alert("OK");
+      var response = xhttp.responseText;
+
+      if (response == "nosearch") {
+        location.reload();
+      } else {
+        document.getElementById("search-result").innerHTML = response;
+      }
+    }
+  };
+
+  xhttp.open("POST", "./searchProcess.php", true);
+  xhttp.send(f);
 }

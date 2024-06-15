@@ -46,8 +46,17 @@ $num = $rs->num_rows;
 
         ?>
         <?php include "includes/navBar.php" ?>
-        <p><?php echo ($pid) ?></p>
-        <div class="container">
+
+
+        <div class="container mt-4">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                    <li class="breadcrumb-item"><a href="blogs.php">Blogs</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> <?php echo ($d['title']) ?></li>
+                </ol>
+            </nav>
+
             <div class="row">
                 <div class="col-sm-12">
 
@@ -57,11 +66,11 @@ $num = $rs->num_rows;
                         <p class="footer-group-item"><?php echo ($d['created_at']) ?></p>
                     </div>
                     <hr>
-                    <div class="col-sm-12 ">
-                        <img class="img-fluid" src="<?php echo ($d2['path']); ?>">
+                    <div class="col-sm-12">
+                        <img class="img-fluid" width="100%" src="<?php echo ($d2['path']); ?>">
                     </div>
 
-                    <div class="border p-5 ps-5">
+                    <div class="border-sm p-sm-5">
                         <?php echo htmlspecialchars_decode($d['content']); ?>
                     </div>
                 </div>
@@ -74,6 +83,7 @@ $num = $rs->num_rows;
     }
     ?>
 
+    <?php include "includes/footer.php"; ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>

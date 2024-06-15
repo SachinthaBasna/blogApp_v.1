@@ -6,7 +6,7 @@ $num = $rs->num_rows;
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 
 <head>
     <meta charset="UTF-8">
@@ -25,12 +25,12 @@ $num = $rs->num_rows;
 
         }
 
-        .hero-img{
+        .hero-img {
             position: relative;
             z-index: 1;
         }
 
-        .hero-img::before{
+        .hero-img::before {
             content: '';
             position: absolute;
             background-color: black;
@@ -59,7 +59,7 @@ $num = $rs->num_rows;
 
     <?php include "includes/navBar.php" ?>
 
-    <div class="hero border rounded p-5 container-fluid mt-2" style="background-color: #2B3035;">
+    <div class="hero border rounded p-5 container mt-2" style="background-color: #2B3035;">
         <div class="row rounded border" style="border-color: rgba(255,255,255,0.2);">
             <div class="col-sm-6 p-5">
                 <h1 class="fw-bold text-light">Welcome to my Blog Site!</h1>
@@ -87,8 +87,9 @@ $num = $rs->num_rows;
                 $d3 = $rs3->fetch_assoc();
                 ?>
                 <!-- Div 2 -->
-                <div class="hero-img col-md-6 rounded border p-5" style="background: url('<?php echo $d3['path'] ?>'); background-size: cover;">
-                <?php
+                <div class="hero-img col-md-6 rounded border p-5"
+                    style="background: url('<?php echo $d3['path'] ?>'); background-size: cover;">
+                    <?php
             }
             ?>
                 <?php $d = $rs->fetch_assoc(); ?>
@@ -101,14 +102,12 @@ $num = $rs->num_rows;
         </div>
     </div>
 
-
-    <div class="border rounded container-fluid mt-2 p-2">
-        <h2 class="fw-bold text-dark text-center" id="artical">Latest Articles</h2>
-        <p class="text-center"><span class="fw-bold"><?php echo ($num); ?></span> articles Found</p>
+    <div class="border rounded container mt-2 p-2">
+        <h2 class="fw-bold text-center" id="artical">Latest Articles</h2>
     </div>
 
-    <div class="border rounded container-fluid mt-2">
-        <div class="row gap-2 d-flex justify-content-between p-2">
+    <div class="container p-4 mt-2">
+        <div class="row gap-4 d-flex justify-content-between" id="search-result">
 
             <?php
             $rs2 = Database::search("SELECT * FROM `post`");
@@ -123,8 +122,7 @@ $num = $rs->num_rows;
                     <img src="<?php echo ($d['path']); ?>" class="rounded-top">
                     <p class="text-center"><?php echo $d['created_at'] ?></p>
                     <h4 class="text-center fw-bold"><?php echo $d['title']; ?></h4>
-                    <p class="text-center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore. Lorem ipsum
-                        dolor sit amet consectetur.</p>
+
                     <button class="btn btn-primary">Read Full article</button>
                 </div>
 

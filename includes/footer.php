@@ -1,8 +1,8 @@
-<footer class="footer container-fluid border mt-5 p-5">
+<footer class="footer container-fluid border mt-5 p-5 navbar-dark bg-dark text-light">
     <div class="container mt-4">
         <div class="row">
             <div class="col-sm-6">
-                <h1>Logo</h1>
+                <a class="navbar-brand" href="./index.php"><img src="resources/Logo.png" height="28px"></a>
                 <p>&copy; 2024 Sachintha Basnayaka All rights Reserved</p>
             </div>
             <div class="col-md-2 mb-4">
