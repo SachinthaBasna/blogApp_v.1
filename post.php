@@ -9,7 +9,7 @@ $num = $rs->num_rows;
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 
 <head>
 
@@ -48,22 +48,22 @@ $num = $rs->num_rows;
         <?php include "includes/navBar.php" ?>
 
 
-        <div class="container mt-4">
+        <div class="container-sm  mt-5">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                    <li class="breadcrumb-item"><a href="blogs.php">Blogs</a></li>
+                    <li class="breadcrumb-item"><a href="index.php" style="color: #B1EF42;">Home</a></li>
+                    <li class="breadcrumb-item"><a href="blog.php" style="color: #B1EF42;">Articles</a></li>
                     <li class="breadcrumb-item active" aria-current="page"> <?php echo ($d['title']) ?></li>
                 </ol>
             </nav>
 
             <div class="row">
                 <div class="col-sm-12">
-
-                    <h1 class="fw-bold"><?php echo ($d['title']) ?></h1>
+        
+                    <h1 class="fw-bold" style="font-size: 54px;"><?php echo ($d['title']) ?></h1>
                     <div class="footer-group">
-                        <p class="footer-group-item">by: <b><?php echo ($d['author']) ?></b></p>
-                        <p class="footer-group-item"><?php echo ($d['created_at']) ?></p>
+                        <h5 class="text-body">by: <i><?php echo ($d['author']) ?></i></h5>
+                        <h6 class="text-body-secondary"><?php echo ($d['created_at']) ?></h6>
                     </div>
                     <hr>
                     <div class="col-sm-12">
