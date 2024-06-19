@@ -24,7 +24,7 @@
                     <li class="nav-item text-secondary">Home</li>
                 </ul>
             </div>
-
+    
             <div class="col-md-2 mb-4">
                 <h4>Section</h4>
                 <ul class="nav flex-column">

@@ -91,28 +91,31 @@ $num = $rs->num_rows;
         </div>
 
         <!-- Div 2 -->
-        <div class="row mt-2 row align-items-md-stretch">
+        <div class="row mt-2 align-items-md-stretch">
+
             <div class="col-md-6 border-light-subtle p-5">
                 <?php $d = $rs->fetch_assoc(); ?>
                 <h2 class="fw-bold text-light"><?php echo $d['title'] ?></h2>
                 <p class="text-truncate text-light text-wrap text-truncate2">
                     <?php echo htmlspecialchars(strip_tags(htmlspecialchars_decode($d['content']))) ?>
                 </p>
-                <a href="#article" class="btn btn-lg text-dark" onclick="postView(<?php echo ($d['id']) ?>);" style="background: #B1EF42;">Read >
+                <a href="#article" class="btn btn-lg text-dark" onclick="postView(<?php echo ($d['id']) ?>);"
+                    style="background: #B1EF42;">Read >
                 </a>
             </div>
+            <!-- Div 2 -->
+
 
             <?php
-            $rs3 = Database::search("SELECT * FROM `post` WHERE `id` > '{$d['id']}' ORDER BY `created_at` DESC LIMIT 1");
+            $rs3 = Database::search("SELECT * FROM `post` WHERE `id` = '".$d['id']."' ORDER BY `created_at` DESC");
 
             $num3 = $rs3->num_rows;
-
+            // echo $num3;
             for ($i = 0; $i < $num3; $i++) {
                 $d3 = $rs3->fetch_assoc();
                 ?>
-                <!-- Div 2 -->
-                <div class="hero-img col-md-6 border-light-subtle rounded-3 border p-5"
-                    style="background: url('<?php echo $d3['path'] ?>'); background-size: cover;">
+            <div class="hero-img col-md-6 border-light-subtle rounded-3 border p-5" style="background: url(<?php echo($d3['path']) ?>);">
+               
                     <?php
             }
             ?>
@@ -123,8 +126,8 @@ $num = $rs->num_rows;
                     <?php echo htmlspecialchars(strip_tags(htmlspecialchars_decode($d['content']))) ?>
                 </p>
 
-                <a href="#article" class="btn btn-lg"
-                    onclick="postView(<?php echo ($d['id']) ?>);" style="border:2px solid #B1EF42; color: #B1EF42;">Read >
+                <a href="#article" class="btn btn-lg" onclick="postView(<?php echo ($d['id']) ?>);"
+                    style="border:2px solid #B1EF42; color: #B1EF42;">Read >
                 </a>
             </div>
         </div>
@@ -138,7 +141,7 @@ $num = $rs->num_rows;
         <div class="row gap-4 d-flex justify-content-between" id="search-result">
 
 
-                <?php include "includes/postList.php"?>
+            <?php include "includes/postList.php" ?>
 
 
         </div>
@@ -152,7 +155,7 @@ $num = $rs->num_rows;
     <script src="assets/script.js"></script>
 
     <script>
-        
+
     </script>
 </body>
 
